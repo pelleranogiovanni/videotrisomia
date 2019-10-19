@@ -13,4 +13,8 @@ class PostsController extends Controller
         return view('admin.post.post');
 
     }
+
+    public function destroy($id) {
+        return "Publicación eliminada con éxito";
+    }
 }
