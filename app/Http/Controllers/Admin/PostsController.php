@@ -10,9 +10,11 @@ class PostsController extends Controller
 {
     public function create(){
 
+        $VAR = 0;
         return view('admin.post.post');
 
     }
+
 
     public function destroy($id) {
         return "Publicación eliminada con éxito";
