@@ -44,6 +44,55 @@
                   <p>Lista del censados</p>
                 </a>
               </li>
+
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="far fa-id-badge"></i>
+                  <p>Formulario Tutor</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="far fa-address-card"></i>
+                  <p>Lista de tutores</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="far fa-address-card"></i>
+                  <p>Listar Obras Sociales</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="far fa-address-card"></i>
+                  <p>Listar Patologías</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="far fa-address-card"></i>
+                  <p>Listar Pensiones</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="far fa-address-card"></i>
+                  <p>Listar Tratamientos</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="far fa-address-card"></i>
+                  <p>Listar Residencias</p>
+                </a>
+              </li>
+
             </ul>
           </li>
           <li class="nav-item">

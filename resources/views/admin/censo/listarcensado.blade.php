@@ -54,16 +54,19 @@
                                         </thead>
                                         <tbody>
                                             <tr role="row" class="odd">
-                                                <td class="sorting_1">Ramirez</td>
+                                                <td class=""><a></a>Ramirez</td>
                                                 <td>34565009</td>
                                                 <td>Ramirez</td>
-                                                <td></td>
-                                            </tr>
-                                            <tr role="row" class="even">
-                                                <td class="sorting_1">Perez</td>
-                                                <td>34565033</td>
-                                                <td>Ortega</td>
-                                                <td></td>
+                                                <td>
+                                                    <div class="button-group">
+                                                        <form action="" method="POST">
+                                                         @csrf
+                                                         {{-- @method('DELETE') --}}
+                                                         <button type="submit" class="btn btn-danger  btn-sm">ELIMINAR</button>
+                                                         <a href="" class="btn btn-primary  btn-sm">EDITAR</a>
+                                                        </form>
+                                                    </div>
+                                                </td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -79,7 +82,8 @@
                                 </div>
                                 <div class="col-sm-12 col-md-7">
                                     <div class="dataTables_paginate paging_simple_numbers" id="example1_paginate">
-                                            <ul class="pagination">
+
+                                        {{-- <ul class="pagination">
                                                 <li class="paginate_button page-item previous disabled" id="example1_previous">
                                                     <a href="#" aria-controls="example1" data-dt-idx="0" tabindex="0" class="page-link">Atrás</a>
                                                 </li>
@@ -95,7 +99,7 @@
                                                 <li class="paginate_button page-item next" id="example1_next">
                                                     <a href="#" aria-controls="example1" data-dt-idx="4" tabindex="0" class="page-link">Siguinte</a>
                                                 </li>
-                                            </ul>
+                                            </ul> --}}
                                     </div>
                                 </div>
                             </div>
