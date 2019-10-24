@@ -34,11 +34,11 @@ Route::group(['namespace' => 'Admin'], function () {
     Route::get('admin/home/bandejaentrada', 'MensajesController@index')->name('admin.bandejaentrada')->middleware();
 
     Route::get('admin/home/bandejaentrada/mensaje', 'MensajesController@index')->name('admin.leermensaje')->middleware();
-	
+
     Route::get('admin/home/evento', 'AgendasController@create')->name('admin.evento.create')->middleware();
-    
+
     Route::post('admin/home/evento', 'AgendasController@store')->name('admin.evento.store')->middleware();
-    
+
 });
 
 Route::get('/', function () {
