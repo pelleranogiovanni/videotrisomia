@@ -35,7 +35,7 @@
                                                             <i class="fas fa-user-alt"></i>
                                                         </span>
                                                     </div>
-                                                    <input type="text" class="form-control" id="" name="" placeholder="Igrese Nombre">
+                                                    <input type="text" class="form-control" id="" name="nombre" placeholder="Igrese Nombre">
                                                 </div>
                                             </div>
 
@@ -48,7 +48,7 @@
                                                             <i class="fas fa-user-alt"></i>
                                                         </span>
                                                     </div>
-                                                    <input type="text" class="form-control" id="" name="" placeholder="Igrese Apellido">
+                                                    <input type="text" class="form-control" id="" name="apellido" placeholder="Igrese Apellido">
                                                 </div>
                                             </div>
 
@@ -61,7 +61,7 @@
                                                             <i class="far fa-address-card"></i>
                                                         </span>
                                                     </div>
-                                                    <input type="text" class="form-control" id="" name="" placeholder="Igrese DNI">
+                                                    <input type="text" class="form-control" id="" name="dni" placeholder="Igrese DNI">
                                                 </div>
                                             </div>
 
@@ -74,7 +74,7 @@
                                                             <i class="far fa-calendar-alt"></i>
                                                         </span>
                                                     </div>
-                                                    <input type="date" class="form-control" value="" id="">
+                                                    <input type="text" class="form-control" name="fechanacimiento" id="">
                                                 </div>
                                             </div>
 
@@ -88,15 +88,15 @@
                                                         </span>
                                                     </div>
                                                     <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                                        <input class="form-check-input" type="radio" name="sexo" id="inlineRadio1" value="option1">
                                                         <label class="form-check-label" for="inlineRadio1">Masculino</label>
                                                     </div>
                                                     <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                                        <input class="form-check-input" type="radio" name="sexo" id="inlineRadio2" value="option2">
                                                         <label class="form-check-label" for="inlineRadio2">Femenino</label>
                                                     </div>
                                                     <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
+                                                        <input class="form-check-input" type="radio" name="sexo" id="inlineRadio3" value="option3">
                                                         <label class="form-check-label" for="inlineRadio3">Otro</label>
                                                     </div>
                                                 </div>
@@ -111,7 +111,7 @@
                                                             <i class="fas fa-user-alt"></i>
                                                         </span>
                                                     </div>
-                                                    <select class="custom-select" id="inputGroupSelect01">
+                                                    <select class="custom-select" id="" name="estadocivil">
                                                         <option selected>Seleccione</option>
                                                         <option value="1">Soltero</option>
                                                         <option value="2">En Relación</option>
@@ -131,7 +131,7 @@
                                                             <i class="fas fa-briefcase"></i>
                                                         </span>
                                                     </div>
-                                                    <input type="text" class="form-control" id="" name="" placeholder="Igrese Ocupación">
+                                                    <input type="text" class="form-control" id="" name="ocupacion" placeholder="Igrese Ocupación">
                                                 </div>
                                             </div>
 
@@ -149,7 +149,7 @@
                                                                 <i class="fas fa-map-marked-alt"></i>
                                                         </span>
                                                     </div>
-                                                    <select class="custom-select" id="inputGroupSelect01">
+                                                    <select class="custom-select" id="" name="localidad_id">
                                                         <option selected>Seleccione una Localidad</option>
                                                         <option value="1">Villa Ángela</option>
                                                         <option value="2">Resistencia</option>
@@ -167,7 +167,7 @@
                                                             <i class="fas fa-home"></i>
                                                         </span>
                                                     </div>
-                                                    <select class="custom-select" id="inputGroupSelect01">
+                                                    <select class="custom-select" id="" name="situacionresidencial_id">
                                                         <option selected>Seleccione una opción</option>
                                                         <option value="1">Vivienda familiar</option>
                                                         <option value="2">Hogar de menores/orfanato</option>
@@ -186,7 +186,7 @@
                                                             <i class="fas fa-map-marker-alt"></i>
                                                         </span>
                                                     </div>
-                                                    <input type="text" class="form-control" id="" name="" placeholder="Igrese Dirección">
+                                                    <input type="text" class="form-control" id="" name="direccion" placeholder="Igrese Dirección">
                                                 </div>
                                             </div>
 
@@ -199,7 +199,7 @@
                                                             <i class="fas fa-users"></i>
                                                         </span>
                                                     </div>
-                                                    <input type="text" class="form-control" id="" name="" placeholder="Igrese el entorno en el que vive">
+                                                    <input type="text" class="form-control" id="" name="entornofamiliar" placeholder="Igrese el entorno en el que vive">
                                                 </div>
                                             </div>
 
@@ -212,7 +212,7 @@
                                                             <i class="fas fa-phone-alt"></i>
                                                         </span>
                                                     </div>
-                                                    <input type="text" class="form-control" id="" name="" placeholder="Igrese Número de Teléfono">
+                                                    <input type="text" class="form-control" id="" name="telefono" placeholder="Igrese Número de Teléfono">
                                                 </div>
                                             </div>
 
@@ -229,7 +229,7 @@
                                                             <i class="fas fa-graduation-cap"></i>
                                                         </span>
                                                     </div>
-                                                    <select class="custom-select" id="inputGroupSelect01">
+                                                    <select class="custom-select" id="" name="formacionescolar">
                                                         <option selected>Seleccione una opción</option>
                                                         <option value="1">Jardín de Infantes</option>
                                                         <option value="2">Primario Completo</option>
@@ -252,7 +252,7 @@
                                                             <i class="fas fa-school"></i>
                                                         </span>
                                                     </div>
-                                                    <select class="js-example-basic-multiple" name="establecimiento[]" multiple="multiple" style="width: 93%">
+                                                    <select class="js-example-basic-multiple" name="institucioneducativa_id[]" multiple="multiple" style="width: 93%">
                                                         <option value="1">Hogar de día/Guardería</option>
                                                         <option value="2">Escuela Común</option>
                                                         <option value="3">Escuela Especial</option>
@@ -274,7 +274,7 @@
                                                             <i class="far fa-id-card"></i>
                                                         </span>
                                                     </div>
-                                                    <input type="text" class="form-control" id="" name="" placeholder="Igrese Numero de CUD">
+                                                    <input type="text" class="form-control" id="" name="numerocertificadod" placeholder="Igrese Numero de CUD">
                                                 </div>
                                             </div>
 
@@ -287,7 +287,7 @@
                                                             <i class="far fa-calendar-alt"></i>
                                                         </span>
                                                     </div>
-                                                    <input type="date" class="form-control" value="" id="">
+                                                    <input type="text" class="form-control" name="fechaemision" id="">
                                                 </div>
                                             </div>
 
@@ -300,7 +300,7 @@
                                                             <i class="far fa-calendar-alt"></i>
                                                         </span>
                                                     </div>
-                                                    <input type="date" class="form-control" value="" id="">
+                                                    <input type="text" class="form-control" name="fechavencimiento" id="">
                                                 </div>
                                             </div>
 
@@ -313,7 +313,7 @@
                                                             <i class="far fa-building"></i>
                                                         </span>
                                                     </div>
-                                                    <input type="text" class="form-control" id="" name="" placeholder="Igrese la Entidad">
+                                                    <input type="text" class="form-control" id="" name="entidadcertificado" placeholder="Igrese la Entidad">
                                                 </div>
                                             </div>
 
@@ -331,7 +331,7 @@
                                                             <i class="far fa-id-card"></i>
                                                         </span>
                                                     </div>
-                                                    <select class="custom-select" id="inputGroupSelect01">
+                                                    <select class="custom-select" id="" name="obrasocial_id">
                                                             <option selected>Seleccione una obra social</option>
                                                             <option value="1">ObraSocial1</option>
                                                             <option value="2">ObraSocial2</option>
@@ -348,7 +348,7 @@
                                                             <i class="far fa-id-card"></i>
                                                         </span>
                                                     </div>
-                                                    <select class="js-example-basic-multiple" name="pensiones[]" multiple="multiple" style="width: 93%">
+                                                    <select class="js-example-basic-multiple" name="pension[]" multiple="multiple" style="width: 93%">
                                                         <option value="1">Asignación por hijo con discapacidad</option>
                                                         <option value="2">Pensión para mayores de 18 años</option>
                                                     </select>
@@ -364,7 +364,7 @@
                                                             <i class="fas fa-file-medical-alt"></i>
                                                         </span>
                                                     </div>
-                                                    <select class="js-example-basic-multiple" name="patologias[]" multiple="multiple" style="width: 93%">
+                                                    <select class="js-example-basic-multiple" name="patologia[]" multiple="multiple" style="width: 93%">
                                                         <option value="1">Cardiopatía</option>
                                                         <option value="2">Trastorno Digestivo</option>
                                                         <option value="3">Problemas Visuales</option>
@@ -398,7 +398,7 @@
                                                             <i class="fas fa-edit"></i>
                                                         </span>
                                                     </div>
-                                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                                    <textarea class="form-control" id="" rows="3" name="observacion"></textarea>
                                                  </div>
                                             </div>
 

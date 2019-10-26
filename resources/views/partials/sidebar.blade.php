@@ -33,7 +33,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link active">
+                <a href="#" class="nav-link">
                     <i class="far fa-id-badge"></i>
                   <p>Formulario Censo</p>
                 </a>
