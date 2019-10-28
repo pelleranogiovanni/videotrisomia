@@ -23,27 +23,76 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          <li class="nav-item has-treeview">
-            <a href="" class="nav-link active">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+          <li class="nav-item has-treeview menu-open">
+            <a href="#" class="nav-link active">
+                <i class="fas fa-id-card-alt"></i>
               <p>
-                Starter Pages
+                Censo
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-              <a href="" class="nav-link active">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Publicaciones</p>
+                <a href="#" class="nav-link">
+                    <i class="far fa-id-badge"></i>
+                  <p>Formulario Censo</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Inactive Page</p>
+                    <i class="far fa-address-card"></i>
+                  <p>Lista del censados</p>
                 </a>
               </li>
+
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="far fa-id-badge"></i>
+                  <p>Formulario Tutor</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="far fa-address-card"></i>
+                  <p>Lista de tutores</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="far fa-address-card"></i>
+                  <p>Listar Obras Sociales</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="far fa-address-card"></i>
+                  <p>Listar Patologías</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="/pensiones" class="nav-link">
+                    <i class="far fa-address-card"></i>
+                  <p>Listar Pensiones</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="far fa-address-card"></i>
+                  <p>Listar Tratamientos</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="far fa-address-card"></i>
+                  <p>Listar Residencias</p>
+                </a>
+              </li>
+
             </ul>
           </li>
           <li class="nav-item">
