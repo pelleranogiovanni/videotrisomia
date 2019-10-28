@@ -8,19 +8,16 @@ use App\Http\Controllers\Controller;
 
 class PostsController extends Controller
 {
-    public function create(){
+    //     public function create()
+    //     {
 
-<<<<<<< HEAD
-        $VAR = 0;
-=======
-        $variable2=0;
->>>>>>> test
-        return view('admin.post.post');
-
-    }
+    //         $VAR = 0;
+    //         return view('admin.post.post');
+    //     }
 
 
-    public function destroy($id) {
-        return "Publicación eliminada con éxito";
-    }
+    //     public function destroy($id)
+    //     {
+    //         return "Publicación eliminada con éxito";
+    //     }
 }

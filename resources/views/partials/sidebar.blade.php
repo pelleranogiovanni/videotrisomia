@@ -73,7 +73,7 @@
               </li>
 
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="/pensiones" class="nav-link">
                     <i class="far fa-address-card"></i>
                   <p>Listar Pensiones</p>
                 </a>
