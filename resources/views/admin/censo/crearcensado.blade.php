@@ -11,7 +11,7 @@
                     </div>
 
                     <!-- inicio formulario -->
-                    <form action="" method="POST">
+                    <form action="{{ route('censado.store') }}" method="POST">
                         @csrf
                         <div class="card-body">
                                 <nav>
@@ -74,7 +74,7 @@
                                                             <i class="far fa-calendar-alt"></i>
                                                         </span>
                                                     </div>
-                                                    <input type="text" class="form-control" name="fechanacimiento" id="">
+                                                    <input type="date" class="form-control" name="fechanacimiento" id="">
                                                 </div>
                                             </div>
 
@@ -151,9 +151,9 @@
                                                     </div>
                                                     <select class="custom-select" id="" name="localidad_id">
                                                         <option selected>Seleccione una Localidad</option>
-                                                        <option value="1">Villa Ángela</option>
-                                                        <option value="2">Resistencia</option>
-                                                        <option value="3">Charata</option>
+                                                        @foreach ($localidades as $localidad)
+                                                            <option value="{{ $localidad->id }}">{{ $localidad->localidad }}</option>
+                                                        @endforeach
                                                     </select>
                                                 </div>
                                             </div>
@@ -253,11 +253,9 @@
                                                         </span>
                                                     </div>
                                                     <select class="js-example-basic-multiple" name="institucioneducativa_id[]" multiple="multiple" style="width: 93%">
-                                                        <option value="1">Hogar de día/Guardería</option>
-                                                        <option value="2">Escuela Común</option>
-                                                        <option value="3">Escuela Especial</option>
-                                                        <option value="4">Centro Terapéutico</option>
-                                                        <option value="5">Taller protegido</option>
+                                                        @foreach ($schoolings as $schooling)
+                                                            <option value="{{ $schooling->id }}">{{ $schooling->institucioneducativa }}</option>
+                                                        @endforeach
                                                     </select>
                                                 </div>
                                             </div>
@@ -287,7 +285,7 @@
                                                             <i class="far fa-calendar-alt"></i>
                                                         </span>
                                                     </div>
-                                                    <input type="text" class="form-control" name="fechaemision" id="">
+                                                    <input type="date" class="form-control" name="fechaemision" id="">
                                                 </div>
                                             </div>
 
@@ -300,7 +298,7 @@
                                                             <i class="far fa-calendar-alt"></i>
                                                         </span>
                                                     </div>
-                                                    <input type="text" class="form-control" name="fechavencimiento" id="">
+                                                    <input type="date" class="form-control" name="fechavencimiento" id="">
                                                 </div>
                                             </div>
 
@@ -333,8 +331,9 @@
                                                     </div>
                                                     <select class="custom-select" id="" name="obrasocial_id">
                                                             <option selected>Seleccione una obra social</option>
-                                                            <option value="1">ObraSocial1</option>
-                                                            <option value="2">ObraSocial2</option>
+                                                            @foreach ($healthinsurances as $healthinsurance)
+                                                               <option value="{{ $healthinsurance->id }}">{{ $healthinsurance->obrasocial }}</option>
+                                                            @endforeach
                                                     </select>
                                                 </div>
                                             </div>
@@ -349,8 +348,9 @@
                                                         </span>
                                                     </div>
                                                     <select class="js-example-basic-multiple" name="pension[]" multiple="multiple" style="width: 93%">
-                                                        <option value="1">Asignación por hijo con discapacidad</option>
-                                                        <option value="2">Pensión para mayores de 18 años</option>
+                                                        @foreach ($pensions as $pension)
+                                                            <option value="{{ $pension->id }}">{{ $pension->pension }}</option>
+                                                        @endforeach
                                                     </select>
                                                 </div>
                                             </div>
@@ -365,10 +365,9 @@
                                                         </span>
                                                     </div>
                                                     <select class="js-example-basic-multiple" name="patologia[]" multiple="multiple" style="width: 93%">
-                                                        <option value="1">Cardiopatía</option>
-                                                        <option value="2">Trastorno Digestivo</option>
-                                                        <option value="3">Problemas Visuales</option>
-                                                        <option value="4">Obesidad</option>
+                                                        @foreach ($pathologies as $pathologie)
+                                                            <option value="{{ $pathologie->id }}">{{ $pathologie->patologia }}</option>
+                                                        @endforeach
                                                     </select>
                                                 </div>
                                             </div>
@@ -383,8 +382,9 @@
                                                         </span>
                                                     </div>
                                                     <select class="js-example-basic-multiple" name="tratamiento[]" multiple="multiple" style="width: 93%">
-                                                        <option value="1">Estimulación Temprana</option>
-                                                        <option value="2">Seguimiento Médico</option>
+                                                        @foreach ($treatments as $treatment)
+                                                            <option value="{{ $treatment->id }}">{{ $treatment->tratamiento }}</option>
+                                                        @endforeach
                                                     </select>
                                                 </div>
                                             </div>

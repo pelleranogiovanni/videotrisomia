@@ -33,21 +33,26 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('crearcensado', function () {
-    return view('admin.censo.crearcensado');
-});
 
-Route::get('listarcensado', function () {
-    return view('admin.censo.listarcensado');
-});
 
-Route::get('creartutor', function () {
-    return view('admin.censo.creartutor');
-});
+//Ruta de recursos para Censados
+Route::resource('censado', 'Admin\RegisteredsController');
 
-Route::get('listartutor', function () {
-    return view('admin.censo.listartutor');
-});
+//Ruta de recursos para Tutores
+Route::resource('tutor', 'Admin\TutorsController');
+
+
+// Route::get('listarcensado', function () {
+//     return view('admin.censo.listarcensado');
+// });
+
+// Route::get('creartutor', function () {
+//     return view('admin.censo.creartutor');
+// });
+
+// Route::get('listartutor', function () {
+//     return view('admin.censo.listartutor');
+// });
 
 
 
