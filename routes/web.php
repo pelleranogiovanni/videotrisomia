@@ -34,12 +34,14 @@ Route::get('/', function () {
 });
 
 
-
 //Ruta de recursos para Censados
 Route::resource('censado', 'Admin\RegisteredsController');
 
 //Ruta de recursos para Tutores
 Route::resource('tutor', 'Admin\TutorsController');
+
+//Ruta de recursos para Voluntarios
+Route::resource('voluntario', 'Admin\VolunteersController');
 
 
 // Route::get('listarcensado', function () {
@@ -63,3 +65,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('pensiones', 'Admin\PensionsController');
 Route::resource('obrassociales', 'Admin\HealthinsurancesController');
+Route::post('buscar', 'Admin\PensionsController@buscar')->name('buscar');
