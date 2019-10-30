@@ -12,4 +12,9 @@ class Location extends Model
     {
         return $this->hasMany('App\Registered');
     }
+
+    public function volunteers()
+    {
+        return $this->hasMany('App\Registered');
+    }
 }
