@@ -70,8 +70,6 @@ class VolunteersController extends Controller
     {
         $voluntario = Volunteer::find($id);
 
-        $voluntario = new Volunteer();
-
         $voluntario->nombre = $request->nombre;
         $voluntario->apellido = $request->apellido;
         $voluntario->dni = $request->dni;
