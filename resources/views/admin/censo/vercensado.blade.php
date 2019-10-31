@@ -385,15 +385,17 @@
                                     <div class="col-sm-12">
                                         <table id="example1" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
                                             <thead>
+                                                @if (empty($tutors))
                                                 <tr role="row">
                                                     <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 170px;">Apellido y Nombre</th>
                                                     <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 219px;">D.N.I.</th>
 
                                                     <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 143px;">Acciones</th>
                                                 </tr>
+                                                @endif
                                             </thead>
                                             <tbody>
-                                                @foreach ($tutors as $tutor)
+                                                @forelse ($registered->tutors as $tutor)
                                                     <tr role="row" class="odd">
                                                         <td><a href="{{ route('tutor.show', [$tutor->id, $registered->id]) }}">{{ $tutor->apellido . ', ' . $tutor->nombre}}</a></td>
                                                         <td>{{ $tutor->dni }}</td>
@@ -409,7 +411,13 @@
                                                             </div>
                                                         </td>
                                                     </tr>
-                                                @endforeach
+                                                @empty
+                                                <div class="alert alert-warning alert-dismissible">
+                                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">×</font></font></button>
+                                                        <h5><i class="icon fas fa-exclamation-triangle"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> ¡Alerta!</font></font></h5><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                                                        No se han registrado tutores hasta el momento. </font><font style="vertical-align: inherit;"></font></font></div>
+
+                                                @endforelse
                                             </tbody>
                                         </table>
                                     </div>
@@ -615,9 +623,9 @@
                                                         </div>
                                                         <select class="custom-select" id="inputGroupSelect01" name="localidad_id">
                                                             <option selected>Seleccione una Localidad</option>
-                                                            <option value="1">Villa Ángela</option>
-                                                            <option value="2">Resistencia</option>
-                                                            <option value="3">Charata</option>
+                                                            @foreach ($localidades as $localidad)
+                                                                <option value="{{ $localidad->id }}">{{ $localidad->localidad }}</option>
+                                                            @endforeach
                                                         </select>
                                                     </div>
                                                 </div>
@@ -708,8 +716,9 @@
                                                         </div>
                                                         <select class="custom-select" id="inputGroupSelect01" name="obrasocial_id">
                                                                 <option selected>Seleccione una obra social</option>
-                                                                <option value="1">ObraSocial1</option>
-                                                                <option value="2">ObraSocial2</option>
+                                                                @foreach ($healthinsurances as $healthinsurance)
+                                                                <option value="{{ $healthinsurance->id }}">{{ $healthinsurance->obrasocial }}</option>
+                                                                @endforeach
                                                         </select>
                                                     </div>
                                                 </div>
