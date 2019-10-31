@@ -117,7 +117,6 @@
                                                 </div>
                                             </div>
 
-
                                         </div>
 
                                         <!-- Situación Residencial / Domicilio -->
@@ -396,7 +395,7 @@
                                             <tbody>
                                                 @foreach ($tutors as $tutor)
                                                     <tr role="row" class="odd">
-                                                        <td><a href="{{ route('censado.show', $tutor->id) }}">{{ $tutor->apellido . ', ' . $tutor->nombre}}</a></td>
+                                                        <td><a href="{{ route('tutor.show', [$tutor->id, $registered->id]) }}">{{ $tutor->apellido . ', ' . $tutor->nombre}}</a></td>
                                                         <td>{{ $tutor->dni }}</td>
 
                                                         <td>
@@ -441,7 +440,7 @@
 
 
 
-{{-- MODAL --}}
+{{-- MODAL CREAR TUTOR --}}
 <div class="modal fade" id="modal-default">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -453,7 +452,7 @@
         </div>
         <div class="modal-body">
             <!-- inicio formulario -->
-            <form action="{{ route('tutor.store') }}" method="POST">
+            <form action="{{ route('tutor.store') }}" method="POST" onsubmit="return validacion()">
                 @csrf
                 <input type="text" hidden name="registered_id" value="{{ $registered->id }}">
                 <div class="card-body">
@@ -474,14 +473,16 @@
                                         <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                                             <!-- nombre -->
                                             <div class="form-group">
-                                                <label for=""><b>Nombre</b></label>
+                                                <label for="inputError"><b>Nombre</b></label>
                                                 <div class="input-group mb-3">
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text">
                                                             <i class="fas fa-user-alt"></i>
                                                         </span>
                                                     </div>
-                                                    <input type="text" class="form-control" id="" name="nombre" placeholder="Igrese Nombre">
+                                                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Igrese Nombre">
+
+                                                    <span id="formError" class="text-danger"></span>
                                                 </div>
                                             </div>
 
@@ -534,15 +535,15 @@
                                                         </span>
                                                     </div>
                                                     <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="radio" name="sexo" id="inlineRadio1" value="option1">
+                                                        <input class="form-check-input" type="radio" name="sexo" id="inlineRadio1" value="Masculino">
                                                         <label class="form-check-label" for="inlineRadio1">Masculino</label>
                                                     </div>
                                                     <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="radio" name="sexo" id="inlineRadio2" value="option2">
+                                                        <input class="form-check-input" type="radio" name="sexo" id="inlineRadio2" value="Femenino">
                                                         <label class="form-check-label" for="inlineRadio2">Femenino</label>
                                                     </div>
                                                     <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="radio" name="sexo" id="inlineRadio3" value="option3">
+                                                        <input class="form-check-input" type="radio" name="sexo" id="inlineRadio3" value="Otro">
                                                         <label class="form-check-label" for="inlineRadio3">Otro</label>
                                                     </div>
                                                 </div>
@@ -559,11 +560,11 @@
                                                     </div>
                                                     <select class="custom-select" id="inputGroupSelect01" name="estadocivil">
                                                         <option selected>Seleccione</option>
-                                                        <option value="1">Soltero</option>
-                                                        <option value="2">En Relación</option>
-                                                        <option value="3">Casado</option>
-                                                        <option value="4">Divorciado</option>
-                                                        <option value="5">Viudo</option>
+                                                        <option value="Soltero">Soltero</option>
+                                                        <option value="En Relación">En Relación</option>
+                                                        <option value="Casado">Casado</option>
+                                                        <option value="Divorciado">Divorciado</option>
+                                                        <option value="Viudo">Viudo</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -620,25 +621,6 @@
                                                         </select>
                                                     </div>
                                                 </div>
-
-                                                <!-- situacion residencial -->
-                                                {{-- <div class="form-group">
-                                                    <label for=""><b>Situación Residencial</b></label>
-                                                    <div class="input-group mb-3">
-                                                        <div class="input-group-prepend">
-                                                            <span class="input-group-text">
-                                                                <i class="fas fa-home"></i>
-                                                            </span>
-                                                        </div>
-                                                        <select class="custom-select" id="inputGroupSelect01" name="relacioncensado">
-                                                            <option selected>Seleccione una opción</option>
-                                                            <option value="1">Vivienda familiar</option>
-                                                            <option value="2">Hogar de menores/orfanato</option>
-                                                            <option value="3">Hogar de adultos mayores</option>
-                                                            <option value="4">Situación de calle</option>
-                                                        </select>
-                                                    </div>
-                                                </div> --}}
 
                                                 <!-- direccion -->
                                                 <div class="form-group">
@@ -770,5 +752,22 @@
 <!-- /.modal -->
 
 
+{{-- Funcion javascript --}}
+<script>
+function validacion() {
+    valor = document.getElementById("nombre").value;
+    if( valor == null || valor.length == 0 || /^\s+$/.test(valor) ) {
+        // alert('[ERROR] El campo nombre no puede estar vacio');
+        var errorSpan = document.getElementById("formError");
+        errorSpan.innerHTML = "Rellena todos los campos"
+        document.getElementById("nombre").className += " is-invalid";
+
+    return false;
+    }
+
+
+    return true;
+  }
+</script>
 
 @endsection
