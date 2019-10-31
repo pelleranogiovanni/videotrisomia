@@ -34,7 +34,6 @@ Route::get('/', function () {
 });
 
 
-
 //Ruta de recursos para Censados
 Route::resource('censado', 'Admin\RegisteredsController');
 
@@ -43,6 +42,9 @@ Route::resource('tutor', 'Admin\TutorsController');
 
 //Ruta ir a vercensado con id de tutor y el id de censado
 Route::get('tutor/{tutor}/{censado}', 'Admin\TutorsController@show')->name('tutor.show');
+
+//Ruta de recursos para Voluntarios
+Route::resource('voluntario', 'Admin\VolunteersController');
 
 
 // Route::get('listarcensado', function () {
@@ -66,3 +68,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('pensiones', 'Admin\PensionsController');
 Route::resource('obrassociales', 'Admin\HealthinsurancesController');
+Route::post('buscar', 'Admin\PensionsController@buscar')->name('buscar');

@@ -7,6 +7,11 @@
                 <div class="card-header">
                     <h2>Lista de Pensiones</h2>
                     <a href="{{route('pensiones.create')}}"class="btn btn-success">Nueva Pension</a>
+                    <form action="{{route('buscar')}}" method="POST">
+                        @csrf
+                        <input type="text" name="buscar">
+                        <button type="submit">Buscar</button>
+                    </form>
                 </div>
                 <div class="card-body">
                     <table class="table">
