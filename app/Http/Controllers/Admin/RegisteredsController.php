@@ -65,6 +65,11 @@ class RegisteredsController extends Controller
     public function store(Request $request)
     {
 
+
+        // $ultimo = Censado::last();
+        // $numero = $ultimo->numero;
+        // $numero++;
+
         $censado = new Registered();
 
         $censado->nombre = $request->nombre;
@@ -89,7 +94,9 @@ class RegisteredsController extends Controller
         $censado->entidadcertificado = $request->entidadcertificado;
         $censado->obrasocial_id = $request->obrasocial_id;
         $censado->observacion = $request->observacion;
-        $censado->numerolegajo = 'A01';
+        $censado->numerolegajo = 'CE01';
+
+
         $censado->save();
 
         //ver attach institucioneucativa
@@ -157,6 +164,42 @@ class RegisteredsController extends Controller
      */
     public function destroy($id)
     {
-        //
+
+        $censado = Registered::find($id);
+
+        $tutor = $censado->tutors;
+
+        //recorrer tutor del censado y eliminarlo
+        foreach ($tutor as $tut) {
+            $censado->tutors()->detach($tut->id);
+        }
+
+        //recorrer y eliminar patologias de censado
+        $registered = $censado->pathologies;
+        foreach ($registered as $item) {
+            $censado->pathologies()->detach($item->id);
+        }
+
+        //recorrer y eliminar tratamientos de censado
+        $registered = $censado->treatments;
+        foreach ($registered as $item) {
+            $censado->treatments()->detach($item->id);
+        }
+
+        //recorrer y eliminar pensiones de censado
+        $registered = $censado->pensions;
+        foreach ($registered as $item) {
+            $censado->pensions()->detach($item->id);
+        }
+
+        //recorrer y eliminar escuelas de censado
+        $registered = $censado->schoolings;
+        foreach ($registered as $item) {
+            $censado->schoolings()->detach($item->id);
+        }
+
+        $censado->delete();
+
+        return back();
     }
 }

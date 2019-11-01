@@ -402,10 +402,11 @@
 
                                                         <td>
                                                             <div class="button-group">
-                                                                <form action="" method="POST">
+                                                                {{-- <form action="{{ route('tutor.destroy', [$tutor->id ,$registered->id]) }}" method="POST">
                                                                 @csrf
-                                                                {{-- @method('DELETE') --}}
-                                                                <button type="submit" class="btn btn-danger  btn-sm">ELIMINAR</button>
+                                                                @method('DELETE')
+                                                                <button type="submit" class="btn btn-danger  btn-sm">ELIMINAR</button> --}}
+                                                                <a href="{{ route('tutor.eliminar', [$tutor->id, $registered->id]) }}" class="btn btn-danger  btn-sm">ELIMINAR</a>
                                                                 <a href="" class="btn btn-primary  btn-sm">EDITAR</a>
                                                                 </form>
                                                             </div>
