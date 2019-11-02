@@ -3,7 +3,7 @@
 <div class="container">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-12">
                 <!-- card -->
                 <div class="card card-primary">
                     <div class="card-header">

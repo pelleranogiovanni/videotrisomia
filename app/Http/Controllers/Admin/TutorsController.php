@@ -67,6 +67,8 @@ class TutorsController extends Controller
 
         $censado->tutors()->attach($request->tutor_id);
 
+        toastr()->success('Se ha asignado correctamente el tutor');
+
         return back();
     }
 
@@ -138,6 +140,8 @@ class TutorsController extends Controller
                 $tutor->registereds()->detach($censado->id);
             }
         }
+
+        toastr()->warning('Acaba de eliminar el tutor del censado');
 
         return back();
     }

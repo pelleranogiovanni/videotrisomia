@@ -112,6 +112,9 @@ class RegisteredsController extends Controller
         //tratamiento
         $censado->treatments()->attach($request->tratamiento);
 
+        toastr()->success('Se ha registrado correctamente el censado');
+
+
         return redirect()->route('censado.show', $censado->id);
     }
 
@@ -210,6 +213,8 @@ class RegisteredsController extends Controller
         }
 
         $censado->delete();
+
+        toastr()->success('Se ha eliminado el censado correctamente');
 
         return back();
     }

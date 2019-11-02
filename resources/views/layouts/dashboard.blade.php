@@ -13,6 +13,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
   <title>Trisomía 21</title>
 
+  <link rel="stylesheet" href="{{ asset('css/app.css') }}">
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="{{ asset('dashboard/plugins/fontawesome-free/css/all.min.css') }}">
   <!-- Theme style -->
@@ -56,12 +57,20 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="{{ asset('dashboard/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('dashboard/dist/js/adminlte.min.js') }}"></script>
+
+<script src="{{ asset('toastr/toastr.js') }}"></script>
+
 <!-- Select2 js -->
 <script src="{{ asset('select2/select2.js') }}"></script>
+
 <script>
     $(document).ready(function() {
         $('.js-example-basic-multiple').select2();
     });
 </script>
+
+
+
+{!! toastr()->render() !!}
 </body>
 </html>
