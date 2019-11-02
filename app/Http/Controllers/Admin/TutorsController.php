@@ -61,6 +61,15 @@ class TutorsController extends Controller
         return back();
     }
 
+    public function asignarTutorACensado(Request $request)
+    {
+        $censado = Registered::find($request->registered_id);
+
+        $censado->tutors()->attach($request->tutor_id);
+
+        return back();
+    }
+
     /**
      * Display the specified resource.
      *
@@ -71,7 +80,7 @@ class TutorsController extends Controller
     {
         $tutor = Tutor::find($tutor);
 
-        return view('admin.censo.vertutor', \compact('tutor', 'censado'));
+        return view('admin.censo.vertutor', compact('tutor', 'censado'));
     }
 
     /**

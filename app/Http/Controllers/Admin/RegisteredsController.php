@@ -7,14 +7,15 @@ namespace App\Http\Controllers\Admin;
 use App\Tutor;
 use App\Pension;
 use App\Location;
+use App\Residence;
 use App\Schooling;
 use App\Treatment;
 use App\Pathologie;
 use App\Registered;
 use App\Healthinsurance;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
-use App\Residence;
 
 class RegisteredsController extends Controller
 {
@@ -126,11 +127,19 @@ class RegisteredsController extends Controller
 
         $tutors = Registered::with('tutors')->find($id); //manda solo los tutores de ese censado
 
+        $array1 = $tutors->tutors;
+
+        $totaltutors = Tutor::all();
+
+        $resultado = array_diff($array1, $totaltutors);
+
+        return $resultado;
+
         $localidades = Location::all();
 
         $healthinsurances = Healthinsurance::all();
 
-        return view('admin.censo.vercensado', compact('registered', 'tutors', 'localidades', 'healthinsurances'));
+        return view('admin.censo.vercensado', compact('registered', 'tutors', 'localidades', 'healthinsurances', 'totaltutors'));
     }
 
     /**

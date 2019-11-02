@@ -355,6 +355,7 @@
                         <!-- footer del card con boton -->
                         <div class="card-footer">
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-default">Agregar Tutor</button>
+                            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-info">Buscar Tutor</button>
                         </div>
                     </form>
                     <!-- termina formulario -->
@@ -397,7 +398,7 @@
                                             <tbody>
                                                 @forelse ($registered->tutors as $tutor)
                                                     <tr role="row" class="odd">
-                                                        <td><a href="{{ route('tutor.show', [$tutor->id, $registered->id]) }}">{{ $tutor->apellido . ', ' . $tutor->nombre}}</a></td>
+                                                        <td><a href="{{ route('tutor.ver', [$tutor->id, $registered->id]) }}">{{ $tutor->apellido . ', ' . $tutor->nombre}}</a></td>
                                                         <td>{{ $tutor->dni }}</td>
 
                                                         <td>
@@ -761,6 +762,66 @@
 </div>
 <!-- /.modal -->
 
+
+{{-- MODAL BUSCAR TUTOR PARA ASIGNAR --}}
+<div class="modal fade" id="modal-info">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h4 class="modal-title">TUTORES PARA ASIGNAR</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <!-- inicio formulario -->
+            <form action="{{ route('censado.tutor.store') }}" method="POST">
+                @csrf
+                <input type="text" hidden name="registered_id" value="{{ $registered->id }}">
+                <div class="card-body">
+
+                    <!-- pensiones -->
+                    <div class="form-group">
+                        <label for=""><b>Tutores</b></label>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fas fa-user-alt"></i>
+                                </span>
+                            </div>
+                            <select class="js-example-basic-multiple" name="tutor_id[]" multiple="multiple" style="width: 93%" required>
+                                @foreach ($totaltutors as $tutor)
+
+                                        @foreach ($tutors->tutors as $tut)
+                                        @if ($tut->id !== $tutor->id)
+                                        <option value="{{ $tutor->id }}" none>{{ $tutor->apellido }}</option>
+                                        @endif
+
+                                        @endforeach
+
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+
+                </div>
+        </div>
+                <!-- footer del card con boton -->
+
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+            </form>
+            <!-- termina formulario -->
+        </div>
+
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
 
 {{-- Funcion javascript --}}
 <script>
