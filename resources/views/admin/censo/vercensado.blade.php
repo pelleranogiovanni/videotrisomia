@@ -1,5 +1,6 @@
 @extends('layouts.dashboard')
 @section('content')
+
 <div class="container">
     <div class="container-fluid">
         <div class="row">
@@ -790,15 +791,8 @@
                                 </span>
                             </div>
                             <select class="js-example-basic-multiple" name="tutor_id[]" multiple="multiple" style="width: 93%" required>
-                                @foreach ($totaltutors as $tutor)
-
-                                        @foreach ($tutors->tutors as $tut)
-                                        @if ($tut->id !== $tutor->id)
-                                        <option value="{{ $tutor->id }}" none>{{ $tutor->apellido }}</option>
-                                        @endif
-
-                                        @endforeach
-
+                                @foreach ($tutores as $tut)
+                                        <option value="{{ $tut->id }}" none>{{ $tut->apellido }}</option>
                                 @endforeach
                             </select>
                         </div>

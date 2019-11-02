@@ -127,19 +127,21 @@ class RegisteredsController extends Controller
 
         $tutors = Registered::with('tutors')->find($id); //manda solo los tutores de ese censado
 
-        $array1 = $tutors->tutors;
-
         $totaltutors = Tutor::all();
 
-        $resultado = array_diff($array1, $totaltutors);
+        $filtro = [];
 
-        return $resultado;
+        foreach ($tutors->tutors as $tutor) {
+            array_push($filtro, $tutor->id);
+        }
+
+        $tutores = $totaltutors->diff(Tutor::whereIn('id', $filtro)->get());
 
         $localidades = Location::all();
 
         $healthinsurances = Healthinsurance::all();
 
-        return view('admin.censo.vercensado', compact('registered', 'tutors', 'localidades', 'healthinsurances', 'totaltutors'));
+        return view('admin.censo.vercensado', compact('registered', 'tutors', 'localidades', 'healthinsurances', 'totaltutors', 'tutores'));
     }
 
     /**
