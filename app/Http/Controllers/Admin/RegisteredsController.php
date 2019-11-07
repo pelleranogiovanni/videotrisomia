@@ -24,10 +24,17 @@ class RegisteredsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $registereds = Registered::all();
+        $dni = $request->dni;
+        $apellido = $request->apellido;
+        $legajo = $request->legajo;
 
+        $registereds = Registered::orderBy('legajo', 'DESC')
+            ->dni($dni)
+            ->apellido($apellido)
+            ->legajo($legajo)
+            ->paginate(10);
 
         return view('admin.censo.listarcensado', compact('registereds'));
     }
@@ -65,13 +72,14 @@ class RegisteredsController extends Controller
      */
     public function store(Request $request)
     {
-
-
-        // $ultimo = Censado::last();
-        // $numero = $ultimo->numero;
-        // $numero++;
-
         $censado = new Registered();
+
+        $ultimo = Registered::all()->last();
+        if ($ultimo) {
+            $numerolegajo = $ultimo->numerolegajo;
+        } else {
+            $numerolegajo = 10000;
+        }
 
         $censado->nombre = $request->nombre;
         $censado->apellido = $request->apellido;
@@ -87,16 +95,15 @@ class RegisteredsController extends Controller
         $censado->telefono = $request->telefono;
         $censado->formacionescolar = $request->formacionescolar;
 
-
-
         $censado->numerocertificadod = $request->numerocertificadod;
         $censado->fechaemision = $request->fechaemision;
         $censado->fechavencimiento = $request->fechavencimiento;
         $censado->entidadcertificado = $request->entidadcertificado;
         $censado->obrasocial_id = $request->obrasocial_id;
         $censado->observacion = $request->observacion;
-        $censado->numerolegajo = 'CE01';
-
+        $numerolegajo++;
+        $censado->numerolegajo = $numerolegajo;
+        $censado->legajo = 'CE' . $numerolegajo;
 
         $censado->save();
 
@@ -155,7 +162,23 @@ class RegisteredsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $registered = Registered::find($id);
+
+        $localidades = Location::all();
+
+        $schoolings = Schooling::all();
+
+        $healthinsurances = Healthinsurance::all();
+
+        $pensions = Pension::all();
+
+        $pathologies = Pathologie::all();
+
+        $treatments = Treatment::all();
+
+        $residences = Residence::all();
+
+        return view('admin.censo.editcensado', compact('registered', 'localidades', 'schoolings', 'healthinsurances', 'pensions', 'pathologies', 'treatments', 'residences'));
     }
 
     /**
@@ -167,7 +190,13 @@ class RegisteredsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $registered = Registered::find($id);
+
+        $registered->update($request->all());
+
+        toastr()->success('Se han actualizado los datos', 'Éxito');
+
+        return back();
     }
 
     /**
@@ -217,5 +246,14 @@ class RegisteredsController extends Controller
         toastr()->success('Se ha eliminado el censado correctamente');
 
         return back();
+    }
+
+    public function buscarCensadoLegajo(Request $request)
+    {
+        $registereds = Registered::where('legajo', 'like', '%' . $request->buscar . '%')
+            ->orWhere('apellido', 'LIKE', $request->buscar)
+            ->paginate(10);
+
+        return view('admin.censo.listarcensado', compact('registereds'));
     }
 }

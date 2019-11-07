@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StorePension;
 use App\Http\Requests\UpdatePension;
+use Illuminate\Support\Facades\Validator;
 
 class PensionsController extends Controller
 {
@@ -24,6 +25,17 @@ class PensionsController extends Controller
     public function store(StorePension $request)
     {
         $validated = $request->validated();
+        // $validator = Validator::make($request->all(), [
+        //     'pension' => 'required|min:6|max:225|unique:pensions',
+        // ]);
+
+        // if ($validator->fails()) {
+        //     toastr()->danger('Errores');
+
+        //     return back()
+        //         ->withErrors($validator)
+        //         ->withInput();
+        // }
 
         $pension = Pension::create($request->all());
 

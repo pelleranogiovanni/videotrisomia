@@ -46,13 +46,13 @@
               </li>
 
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{ route('tutor.create') }}" class="nav-link">
                     <i class="far fa-id-badge"></i>
                   <p>Formulario Tutor</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{ route('tutor.index') }}" class="nav-link">
                     <i class="far fa-address-card"></i>
                   <p>Lista de tutores</p>
                 </a>

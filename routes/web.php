@@ -41,7 +41,7 @@ Route::resource('censado', 'Admin\RegisteredsController');
 Route::resource('tutor', 'Admin\TutorsController');
 
 //Ruta para ver tutor y volver al show del censado
-Route::get('tutor/{tutor}/{censado}', 'Admin\TutorsController@show')->name('tutor.ver');
+Route::get('tutor/{tutor}/{censado}', 'Admin\TutorsController@verTutor')->name('tutor.ver');
 
 //Ruta para eliminar el tutor de un censado, pero no borra el tutor.
 Route::get('censado/{tutor}/{censado}', 'Admin\TutorsController@eliminarTutor')->name('tutor.eliminar');
@@ -75,3 +75,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('pensiones', 'Admin\PensionsController');
 Route::resource('obrassociales', 'Admin\HealthinsurancesController');
 Route::post('buscar', 'Admin\PensionsController@buscar')->name('buscar');
+
+Route::post('buscarCensado', 'Admin\RegisteredsController@buscarCensadoLegajo')->name('buscar.censado');
