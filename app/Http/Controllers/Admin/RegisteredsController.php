@@ -13,6 +13,7 @@ use App\Treatment;
 use App\Pathologie;
 use App\Registered;
 use App\Healthinsurance;
+use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
@@ -248,12 +249,19 @@ class RegisteredsController extends Controller
         return back();
     }
 
-    public function buscarCensadoLegajo(Request $request)
+    public function exportarPdf()
     {
-        $registereds = Registered::where('legajo', 'like', '%' . $request->buscar . '%')
-            ->orWhere('apellido', 'LIKE', $request->buscar)
-            ->paginate(10);
+        $registereds = Registered::all();
 
-        return view('admin.censo.listarcensado', compact('registereds'));
+        $pdf = PDF::loadView('vista', ['registereds' => $registereds])->setPaper('a4', 'landscape');
+        return $pdf->stream('archivo.pdf');
+    }
+
+    public function exportarFicha($id)
+    {
+        $registered = Registered::find($id);
+
+        $pdf = PDF::loadView('ficha', ['registered' => $registered])->setPaper('a4');
+        return $pdf->stream('ficha' . $registered->legajo . '.pdf');
     }
 }

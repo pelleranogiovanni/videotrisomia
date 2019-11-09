@@ -53,19 +53,6 @@ Route::post('censado/tutor', 'Admin\TutorsController@asignarTutorACensado')->nam
 Route::resource('voluntario', 'Admin\VolunteersController');
 
 
-// Route::get('listarcensado', function () {
-//     return view('admin.censo.listarcensado');
-// });
-
-// Route::get('creartutor', function () {
-//     return view('admin.censo.creartutor');
-// });
-
-// Route::get('listartutor', function () {
-//     return view('admin.censo.listartutor');
-// });
-
-
 
 Auth::routes();
 
@@ -77,3 +64,10 @@ Route::resource('obrassociales', 'Admin\HealthinsurancesController');
 Route::post('buscar', 'Admin\PensionsController@buscar')->name('buscar');
 
 Route::post('buscarCensado', 'Admin\RegisteredsController@buscarCensadoLegajo')->name('buscar.censado');
+
+
+//ruta para exportar censados a pdf
+Route::get('exportar-censados-pdf', 'Admin\RegisteredsController@exportarPdf')->name('exportar.censado');
+
+//ruta para exportar a pdf ficha del censado
+Route::get('exportar-ficha-censado/{id}', 'Admin\RegisteredsController@exportarFicha')->name('exportar.ficha');

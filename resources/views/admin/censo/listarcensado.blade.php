@@ -46,7 +46,8 @@
                                     <div class="input-group mb-3">
 
                                         <span class="input-group-append">
-                                            <button type="button" class="btn btn-outline-info btn-flat btn-sm "><i class="fas fa-file-pdf"></i></button>
+                                            <a href="{{ route('exportar.censado') }}" target="_blank" class="btn btn-outline-info btn-flat btn-sm "><i class="fas fa-file-pdf"></i></a>
+                                            {{-- <button type="button" class="btn btn-outline-info btn-flat btn-sm "><i class="fas fa-file-pdf"></i></button> --}}
                                         </span>
                                     </div>
                                 </div>
@@ -89,7 +90,7 @@
                                                             <form action="{{ route('censado.destroy', $registered->id) }}" method="POST">
                                                             @csrf
                                                             @method('DELETE')
-
+                                                            <a href="{{ route('exportar.ficha', $registered->id) }}" target="_blank" class="btn btn-outline-info  btn-sm mr-1"><i class="fas fa-file-pdf"></i></a>
                                                             <button type="submit" class="btn btn-outline-danger btn-sm mr-1" onclick="return confirm('¿Seguro desea borrar el censado permanentemente? Esta acción no se puede revertir.')"><i class="fa fa-trash"></i></button>
                                                             <a href="{{ route('censado.edit', $registered->id) }}" class="btn btn-outline-primary  btn-sm"><i class="fa fa-edit"></i></a>
                                                             </form>
