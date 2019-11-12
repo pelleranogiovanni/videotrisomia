@@ -38,11 +38,18 @@
             font-size: 0.8em;
         }
 
+        h5 {
+            font-family: Arial, Helvetica, sans-serif;
+            color: rgb(0, 85, 197);
+            margin: 0mm;
+        }
+
 
 
     </style>
 </head>
 <body>
+        <h5>TRISOMIÍA 21 - Asociación Civil | Villa Ángela - Chaco</h5> <hr>
         <h1>LISTA DE CENSADOS</h1>
         <hr>
         <div class="contenido">

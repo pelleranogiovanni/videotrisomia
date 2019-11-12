@@ -50,7 +50,9 @@
     </style> --}}
 </head>
 <body>
-        <h3 class="titulo">FICHA DE: {{ $registered->apellido . ', ' . $registered->nombre . ' | ' . 'Legajo: ' . $registered->legajo }}</h3>
+    <h5>TRISOMIÍA 21 - Asociación Civil | Villa Ángela - Chaco</h5> <hr>
+
+    <h2 class="titulo">FICHA DE: {{ $registered->apellido . ', ' . $registered->nombre . ' | ' . 'Legajo: ' . $registered->legajo }}</h2>
         <hr>
         <div class="containter">
             <div class="row">
